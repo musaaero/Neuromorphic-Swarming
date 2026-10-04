@@ -1,56 +1,36 @@
 # Neuromorphic Swarming
 
-## Contributors wanted: build this with me
+## Building neuromorphic swarms — contributors welcome
 
-We are looking for people who are genuinely interested in neuromorphic swarm intelligence, drone coordination, spiking neural networks, reinforcement learning, robotics, and scientific reproducibility — and who want to learn, build, research, and ship something real together.
+I'm starting this project to learn, experiment, and build in neuromorphic computing, autonomous drones, and swarm coordination. I want to explore the field through hands-on trial and error: make ideas concrete, test them in simulation, learn from what fails, and keep building toward more capable systems.
 
-This project is not a polished finished repo. It is a collaborative research-and-build space for people who want to take an idea from concept paper to implementation, run honest experiments, and document what works and what does not.
+I'm based at a university in China with strong unmanned-aircraft and helicopter research, and I hope to connect this project with the expertise and resources around me as it develops.
 
-If you want to contribute, learn by doing, and work on a problem at the intersection of:
-- neuromorphic computing
-- swarm robotics
-- control systems
-- reinforcement learning
-- scientific experimentation
-- reproducible research
+I'm looking for collaborators who are curious about robotics, control, spiking neural networks, reinforcement learning, simulation, or experimental research. You don't need to know everything already. Bring what you know, learn as we go, and help shape the direction.
 
-then this is the place.
+Possible ways to contribute:
+- build and test the swarm simulator
+- explore control and learning approaches
+- improve scenarios, visualizations, and evaluation
+- document experiments, including failures and open questions
+- suggest future directions and help turn them into small, testable steps
 
-We are building this together from the ground up. You can contribute by writing code, designing the simulator, testing controllers, improving documentation, benchmarking experiments, or helping turn the concept paper into a credible open-source research project.
-
-Whether you are a beginner learning the stack or someone with experience in ML, robotics, or simulation, there is a role for you here.
-
-Open to contributors who want to:
-- learn the project structure and engineering workflow
-- implement the simulation and controllers
-- test the ideas and compare baselines
-- write clear docs and reproducible experiments
-- help turn this into a real research artifact
-
-If this sounds like your kind of project, join in and help build it with us.
-
-**Paper:** [Brain-Inspired Framework for Autonomous Drone Coordination](./Untitled%20document.pdf)
+The goal is to learn together and steadily build something useful. The project is early, so contributors can help decide what to try next.
 
 **Illustration:**
 
 ![Neuromorphic swarming concept illustration](https://github.com/user-attachments/assets/088e5a5f-3b8c-4467-8387-f4ae3b49fc5c)
 
-## 🔍 What This Repo Actually Is
+## Project status
 
-Neuromorphic-Swarming (musaaero/Neuromorphic-Swarming) — a concept/position paper only:
-Untitled document.pdf — "Brain-Inspired Framework for Autonomous Drone Coordination": SNNs + neuromorphic hardware (Loihi 2/SpiNNaker), spike-based comms, STDP plasticity, reservoir computing, event cameras (DVS). Claims 60% energy reduction, 100-drone scalability, 30% node-loss robustness.
-The Appendix code is a ~40-line toy NumPy script (threshold spikes → velocity nudge). No real training loop, no RL, no benchmarks.
-README = one link + an image. No code directory, no docs, no CI. 2 stars, 0 forks, 0 open issues.
-Honest assessment: the topic is hot (neuromorphic flight control — Paredes-Vallés/de Croon at TU Delft, FlyDrone project), but the repo has a credibility gap: it claims "simulations and prototype tests" that don't exist in code. For you specifically (aero + multi-GPU DRL), this is actually good news — the fastest path to "decent contribution" here isn't upstream PRs into a dead repo; it's becoming the person who makes this idea reproducible, then porting those skills into the active ecosystems.
-
-The paper's numerical statements are **claims to investigate**, not results established by this repository. The roadmap treats them as hypotheses: any reproduced result must state its assumptions, measurement method, hardware, and limitations.
+This is an early-stage, evolving project. The repository contains a scaffold for a swarm simulation, controllers, training, evaluation, and tests; many modules are placeholders and still need implementation. The roadmap below is a guide, not a fixed promise about what the project must become. We'll choose directions as we learn, validate each step, and record what worked, what failed, and what we want to try next.
 
 ## How to Use This Roadmap
 
 - Work through the stages in order when practical; later experimental and publication stages depend on a defined, tested environment and baseline.
 - Start by reading the project map below, then work only on the files listed for the current stage. Placeholder Python files are intentionally nonfunctional until you implement them.
 - Estimates are rough **active effort**, not calendar deadlines. Add time for learning, compute queues, hardware access, and review. A stage may take longer or be deferred.
-- A stage is complete when its exit checklist is satisfied and the result is recorded in the repository. A merged upstream PR, paper acceptance, or access to neuromorphic hardware is not a required completion condition.
+- A stage is complete when its exit checklist is satisfied and the result is recorded in the repository. External recognition or access to specialized hardware is not a requirement for making progress.
 - Keep every result honest: label simulations, analytical estimates, GPU measurements, and measurements on neuromorphic hardware separately.
 - At each decision gate, narrow scope rather than silently skipping validation. The smallest valid experiment is more useful than an ambitious, irreproducible one.
 
@@ -68,14 +48,13 @@ The scaffold separates simulation mechanics, controllers, training, evaluation, 
 │   └── experiments/                smoke-test and benchmark run settings
 ├── docs/
 │   ├── research_question.md        scope and hypotheses
-│   ├── paper_claims.md             claim ledger for paper numbers
-│   ├── literature_review.md        cited-work reading notes
+│   ├── literature_review.md        notes on relevant research
 │   ├── model_assumptions.md        simulator and energy assumptions
 │   ├── experiment_protocol.md      pre-registered comparison procedure
 │   ├── results_template.md         results reporting template
 │   ├── decisions.md                dated decision log
 │   ├── upstream_contributions.md    optional contribution tracker
-│   └── publication_checklist.md    paper/blog/release checklist
+│   └── publication_checklist.md    research write-up and release checklist
 ├── scripts/                        future command-line entry points
 ├── src/neuromorphic_swarming/
 │   ├── env/                         dynamics, scenarios, observations, environment
@@ -98,7 +77,6 @@ This is the actual coding sequence to follow. Do not jump ahead. Each phase depe
 - `pyproject.toml` — set the package name, Python version, dependencies, and dev/test tools.
 - `docs/README.md` — create the docs index and list the research record for the repo.
 - `docs/research_question.md` — write the first precise research question and non-goals.
-- `docs/paper_claims.md` — break down every paper claim into measurable definitions and assumptions.
 - `docs/literature_review.md` — collect the references and summarize how they relate to the project.
 - `docs/decisions.md` — record each design choice as you make it.
 - `docs/model_assumptions.md` — write the initial simulator assumptions before building code.
@@ -181,7 +159,7 @@ This is the actual coding sequence to follow. Do not jump ahead. Each phase depe
 
 | Stage | Main files to implement or fill in |
 |---|---|
-| 1. Foundation | `docs/research_question.md`, `docs/paper_claims.md`, `docs/literature_review.md`, `docs/decisions.md`, environment setup in `pyproject.toml` |
+| 1. Foundation | `docs/research_question.md`, `docs/literature_review.md`, `docs/decisions.md`, environment setup in `pyproject.toml` |
 | 2. Simulation | `src/neuromorphic_swarming/env/`, `src/neuromorphic_swarming/energy.py`, `src/neuromorphic_swarming/seeds.py`, `src/neuromorphic_swarming/visualization.py`, `configs/environment/`, `tests/unit/` |
 | 3. Controllers | `src/neuromorphic_swarming/controllers/`, `src/neuromorphic_swarming/training/`, `configs/controllers/`, `scripts/train.py`, controller and training tests |
 | 4. Experiments | `src/neuromorphic_swarming/evaluation/`, `src/neuromorphic_swarming/metrics.py`, `configs/experiments/`, `scripts/evaluate.py`, `scripts/run_sweep.py`, `docs/experiment_protocol.md`, `docs/results_template.md`, `tests/integration/` |
@@ -215,38 +193,30 @@ Before adding the optional SNN dependencies, check the official PyTorch installa
 
 ## Staged Roadmap and To-Do List
 
-### Stage 1 — Understand the paper and establish the foundation
+### Stage 1 — Learn the field and shape the first experiment
 
 **Estimated active effort:** 1–3 weeks
-**Goal:** Turn the paper's ideas into a clearly scoped, technically grounded experiment plan.
+**Goal:** Learn the tools and concepts needed for a small, well-defined first experiment, then adjust the plan as results come in.
 
-- [ ] Read the full paper, including its appendix and references; record notes in `docs/literature_review.md`.
-- [ ] Extract every quantitative claim into `docs/paper_claims.md`. For each item, record the exact paper location, what is claimed, required assumptions, a measurable definition, and what evidence would or would not count as reproduction.
-  - [ ] Define what “60% energy reduction” compares against and whether energy means modeled propulsion energy, processor energy, communication energy, or a measured total.
-  - [ ] Define the workload, success condition, and resource limits behind “100-drone scalability.”
-  - [ ] Define the node-loss procedure, failure timing, and recovery metric behind “30% node-loss robustness.”
-- [ ] Read the cited work named in the initial research plan: Vitale; Paredes-Vallés; Taylor & Atkeson; Xu et al.; and Batra et al. Verify the full bibliographic details from the PDF before citing them.
-- [ ] For each paper, record its research question, method, dataset or task, main result, limitations, and one way it relates to this project.
-- [ ] Study the SNN concepts needed for the experiment: LIF neurons, membrane state and reset, spike encoding/decoding, surrogate gradients, recurrent state, and ANN-to-SNN conversion. Note which are actually needed rather than treating every topic as a project requirement.
+- [ ] Write down the questions and ideas that currently motivate the project in `docs/research_question.md`; expect them to evolve as you learn.
+- [ ] Use `docs/literature_review.md` to keep useful notes on relevant research, methods, and tools you encounter.
+- [ ] Study the SNN concepts that are useful for the next experiment: LIF neurons, membrane state and reset, spike encoding/decoding, surrogate gradients, recurrent state, and ANN-to-SNN conversion. Learn these as needed rather than treating them all as requirements.
 - [ ] Set up a clean development environment and record the supported Python/PyTorch/CUDA versions, hardware, installation steps, and random-seed policy. Choose libraries only after confirming their current APIs and compatibility.
 - [ ] Run one small tutorial/example using SpikingJelly or another suitable SNN framework; record the exact command and expected output. Optionally compare with sLIFELT after the basic experiment works.
 - [ ] As a separate learning exercise, train or run a small LIF network on N-MNIST or DVS Gesture using a verified tutorial. Record dataset provenance, preprocessing, and the distinction between this exercise and the swarm-control experiment; do not claim event-camera swarm capability from a classification demo.
-- [ ] Decide the initial question in one sentence in `docs/research_question.md`. Suggested starting question: *Under a fixed simulated swarm task and matched observation/action constraints, how does a small spiking controller compare with simple non-spiking controllers on task success, communication, and explicitly defined energy proxies?*
+- [ ] Choose one initial question in `docs/research_question.md`. For example: *How does a small spiking controller compare with simple non-spiking controllers on a shared simulated swarm task?*
 - [ ] Write down non-goals for the first experiment in `docs/research_question.md`: real aircraft deployment, claims of hardware energy savings, a full flight-dynamics model, and scaling to 100 agents before smaller cases are validated.
 
 **Exit checklist**
 
-- [ ] Paper claims and cited references have been checked against the PDF.
 - [ ] The initial research question, success metric, scope, and terminology are written down.
 - [ ] One SNN tutorial/example runs in the documented environment.
-- [ ] No paper claim is presented as an experimentally reproduced result.
 
 ### Stage 2 — Build a small, inspectable swarm simulation
 
 **Estimated active effort:** 2–4 weeks
-**Goal:** Replace the appendix toy example with a deterministic, testable simulation before adding learning complexity.
+**Goal:** Build a deterministic, testable simulation before adding learning complexity.
 
-- [ ] Inspect the appendix example and describe exactly what it does, what it omits, and which behavior is worth preserving.
 - [ ] Specify a minimal 2D environment in `docs/model_assumptions.md`: coordinate system, agent state, update interval, velocity/acceleration limits, boundaries, target motion, and episode termination.
 - [ ] Implement the smallest useful baseline environment in `src/neuromorphic_swarming/env/`, initially with a handful of agents and one target. Keep simulation mechanics separate from controller logic.
 - [ ] Add configurable scenarios in `configs/environment/`, with defaults stored in human-readable files rather than hidden constants.
@@ -302,7 +272,7 @@ docs/                 model assumptions, experiment protocol, and results notes
 - [ ] Training and evaluation are separate, seeded, and repeatable.
 - [ ] The comparison protocol and controller differences are documented.
 
-### Stage 4 — Validate claims with controlled experiments
+### Stage 4 — Explore with controlled experiments
 
 **Estimated active effort:** 3–6 weeks, plus compute time
 **Goal:** Produce fair, uncertainty-aware evidence at modest scale before attempting headline numbers.
@@ -318,7 +288,6 @@ docs/                 model assumptions, experiment protocol, and results notes
 - [ ] Report distributions or uncertainty (not only a best run). Keep failed runs and explain exclusions.
 - [ ] Separate simulator energy proxies from measured wall-clock/GPU power and from neuromorphic-chip measurements. Never infer chip energy from spike counts alone without a validated model.
 - [ ] Treat 50–100-agent runs as a stretch test: establish a measurable scaling curve and disclose hardware/runtime limits. A smaller verified result is acceptable if larger cases are infeasible.
-- [ ] Compare results to the paper's claim ledger. Mark each claim as reproduced under stated assumptions, partially supported, not reproduced, or not tested.
 - [ ] Publish scripts/configuration and raw or suitably summarized result data needed to regenerate plots; use `docs/results_template.md` to record each experiment.
 
 **Exit checklist**
@@ -326,7 +295,7 @@ docs/                 model assumptions, experiment protocol, and results notes
 - [ ] Main comparisons use the predeclared protocol and more than one seed.
 - [ ] Plots/tables include uncertainty and disclose failures and limits.
 - [ ] Every energy number is labeled with its measurement or estimation method.
-- [ ] Paper claims are assessed individually; unsupported claims remain explicitly unsupported.
+- [ ] Results are described with their assumptions and limitations; unanswered questions remain open.
 
 ### Stage 5 — Extend toward aero and neuromorphic hardware
 
@@ -367,7 +336,7 @@ docs/                 model assumptions, experiment protocol, and results notes
 - [ ] Pick one appropriately scoped contribution, discuss it with maintainers if needed, add focused tests, and submit it independently of claims about this repository.
 - [ ] Track candidate projects, current issue links, contribution status, and PR links in `docs/upstream_contributions.md`. Reconfirm issue numbers and project activity before acting; do not rely on the historical issue numbers in the original research plan.
 - [ ] Share the finished work with relevant researchers or groups (for example, the TU Delft neuromorphic/event-based vision community or Intel Neuromorphic Research Community) using a concise, evidence-backed message. Outreach is optional and does not guarantee a response, internship, or admission.
-- [ ] Use `docs/publication_checklist.md` before submitting a paper, blog post, or release. Verify venue deadlines and policies at submission time.
+- [ ] Use `docs/publication_checklist.md` before sharing a research write-up, blog post, or release. Check current venue deadlines and policies before any submission.
 
 **Exit checklist**
 
