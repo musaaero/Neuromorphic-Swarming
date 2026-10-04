@@ -1,0 +1,8 @@
+# TODO: Define obstacle geometry, placement, collision margin, and seed behavior.
+# Keep all values provisional until documented in docs/model_assumptions.md.
+name: obstacle_avoidance
+num_agents: 5
+world: {}
+simulation: {}
+target: {}
+obstacles: []

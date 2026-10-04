@@ -1,0 +1,15 @@
+# Provisional starting scenario only. Validate and document values before using
+# this file for reported experiments.
+name: small_swarm
+num_agents: 5
+world:
+  width: 100.0
+  height: 100.0
+simulation:
+  dt: 0.1
+  max_steps: 500
+  seed: 42
+target:
+  motion: stationary
+  speed: 0.0
+obstacles: []

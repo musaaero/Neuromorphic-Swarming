@@ -1,0 +1,6 @@
+# TODO: Specify gains and safety thresholds after the control interface is set.
+name: rule_based
+separation: {}
+target_seeking: {}
+obstacle_avoidance: {}
+action_limits: {}

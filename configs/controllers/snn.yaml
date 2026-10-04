@@ -1,0 +1,9 @@
+# TODO: Specify neuron model, encoding, surrogate gradient, network size,
+# state reset, decoding, and training budget after framework verification.
+name: lif_snn
+neuron: {}
+encoding: {}
+decoding: {}
+training: {}
+observation: {}
+action: {}

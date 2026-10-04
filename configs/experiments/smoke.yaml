@@ -1,0 +1,9 @@
+# Minimal configuration target for a future end-to-end smoke run.
+# Complete this after environment and controller schemas are implemented.
+name: smoke
+environment: ../environment/small_swarm.yaml
+controller: ../controllers/rule_based.yaml
+evaluation:
+  seeds: [42]
+  episodes_per_seed: 1
+output_dir: results/smoke
