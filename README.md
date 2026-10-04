@@ -4,7 +4,7 @@
 
 I'm starting this project to learn, experiment, and build in neuromorphic computing, autonomous drones, and swarm coordination. I want to explore the field through hands-on trial and error: make ideas concrete, test them in simulation, learn from what fails, and keep building toward more capable systems.
 
-I'm based at a university in China with strong unmanned-aircraft and helicopter research, and I hope to connect this project with the expertise and resources around me as it develops.
+I'm based at a university in China (Nanjing university of Aeronautics and Astronautics mail me:uma_aero@nuaa.edu.cn) with strong unmanned-aircraft and helicopter research, and I hope to connect this project with the expertise and resources around me as it develops.
 
 I'm looking for collaborators who are curious about robotics, control, spiking neural networks, reinforcement learning, simulation, or experimental research. You don't need to know everything already. Bring what you know, learn as we go, and help shape the direction.
 
