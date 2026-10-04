@@ -10,11 +10,11 @@ A concept paper on brain-inspired drone-swarm coordination — now growing into 
 
 ---
 
-## Honest Assessment of the Current State
+## 🧪 Honest Assessment of the Current State
 
 *(Written October 2026. Read this before touching any code — the roadmap exists because of it.)*
 
-## What this repository is today
+### What this repository is today
 
 - **A concept paper, not a codebase.** The repo contains `Untitled document.pdf` (8 pages), a MIT license, and a README that links to the PDF. There is no executable code at all — the only "implementation" is ~40 lines of NumPy pasted inside the PDF's appendix.
 - **The appendix simulation does not match the paper's claims.** It plots 10 dots drifting toward a fixed point `[50, 50]`. Despite the framing:
@@ -26,7 +26,7 @@ A concept paper on brain-inspired drone-swarm coordination — now growing into 
 - **Scale mismatch:** the paper describes 50–100 drone simulations; the appendix demo runs 10 agents in a 2D grid with no obstacles, no noise, and no channel model.
 - **Repository signals:** ~2 stars, 0 open issues, effectively one author. This means two things simultaneously: (a) nobody is reviewing or demanding anything here yet, and (b) *whatever you contribute becomes the de facto reference implementation* — an unusually low-competition place to build visible work.
 
-## Why this is actually good news for a contributor
+### Why this is actually good news for a contributor
 
 Every gap above is a well-scoped, high-leverage contribution waiting to be claimed:
 
@@ -34,7 +34,7 @@ Every gap above is a well-scoped, high-leverage contribution waiting to be claim
 2. **Make the paper's claims measurable — then benchmark them honestly** (Phase 2). If the numbers refute the claims, publishing that refutation is *still* a contribution and arguably a braver one. A repo that self-corrects earns more credibility than one that confirms itself.
 3. **Bridge to real flight physics and real silicon** (Phase 4) — an aeronautical engineer who can couple rotor-power models to compute-energy accounting and port controllers to Loihi 2 is exactly the person this project needs and does not have.
 
-## Ground rules adopted by this roadmap
+### Ground rules adopted by this roadmap
 
 - **No claim without a counter.** Every number in a README/paper must trace to a committed experiment config and seed (`experiments/`).
 - **Baselines get treated fairly.** If Reynolds flocking beats the SNN on energy, that goes in the table.
@@ -84,5 +84,9 @@ means Phase 1 is done. Run it now:
 
 ```bash
 pip install -e ".[dev]"
-pytest -q
+pytest -q            # current baseline: 4 passed, 18 xfailed
 ```
+
+*(Note for local runs in sandboxed/dev containers: if some unrelated third-party pytest
+plugin — e.g. `libtmux`'s — crashes collection under pytest ≥ 9, add `-p no:libtmux`.
+GitHub Actions CI installs only this project's dev extras, so it is unaffected.)*
