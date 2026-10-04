@@ -1,8 +1,33 @@
 # Neuromorphic Swarming
 
-**A reproducible path from a neuromorphic-drone-swarming concept to measured, openly documented experiments.**
+## Contributors wanted: build this with me
 
-This repository starts from a concept paper, not a finished simulator or validated implementation. The scaffold is organized so you can implement the project one stage at a time: the folders and named placeholder files are ready, while the Python modules intentionally contain no implementation code. The plan uses effort estimates rather than calendar months, so stages can be paused, reordered where dependencies allow, or dropped without implying a missed schedule.
+We are looking for people who are genuinely interested in neuromorphic swarm intelligence, drone coordination, spiking neural networks, reinforcement learning, robotics, and scientific reproducibility — and who want to learn, build, research, and ship something real together.
+
+This project is not a polished finished repo. It is a collaborative research-and-build space for people who want to take an idea from concept paper to implementation, run honest experiments, and document what works and what does not.
+
+If you want to contribute, learn by doing, and work on a problem at the intersection of:
+- neuromorphic computing
+- swarm robotics
+- control systems
+- reinforcement learning
+- scientific experimentation
+- reproducible research
+
+then this is the place.
+
+We are building this together from the ground up. You can contribute by writing code, designing the simulator, testing controllers, improving documentation, benchmarking experiments, or helping turn the concept paper into a credible open-source research project.
+
+Whether you are a beginner learning the stack or someone with experience in ML, robotics, or simulation, there is a role for you here.
+
+Open to contributors who want to:
+- learn the project structure and engineering workflow
+- implement the simulation and controllers
+- test the ideas and compare baselines
+- write clear docs and reproducible experiments
+- help turn this into a real research artifact
+
+If this sounds like your kind of project, join in and help build it with us.
 
 **Paper:** [Brain-Inspired Framework for Autonomous Drone Coordination](./Untitled%20document.pdf)
 
@@ -62,6 +87,95 @@ The scaffold separates simulation mechanics, controllers, training, evaluation, 
 │   └── integration/                 end-to-end rollout tests
 └── results/                         generated outputs; not committed by default
 ```
+
+## Exact file-by-file development order
+
+This is the actual coding sequence to follow. Do not jump ahead. Each phase depends on the previous one being tested and documented.
+
+### Phase 0 — project framing and research
+
+- `README.md` — write the repo purpose, scope, and the final story first. Update it again at the end, but do not treat it as the implementation.
+- `pyproject.toml` — set the package name, Python version, dependencies, and dev/test tools.
+- `docs/README.md` — create the docs index and list the research record for the repo.
+- `docs/research_question.md` — write the first precise research question and non-goals.
+- `docs/paper_claims.md` — break down every paper claim into measurable definitions and assumptions.
+- `docs/literature_review.md` — collect the references and summarize how they relate to the project.
+- `docs/decisions.md` — record each design choice as you make it.
+- `docs/model_assumptions.md` — write the initial simulator assumptions before building code.
+- `docs/experiment_protocol.md` — define how the first experiment will be run and compared.
+- `docs/results_template.md` — define a standard output format before any result is generated.
+- `docs/publication_checklist.md` and `docs/upstream_contributions.md` — do these later, after the repo has evidence.
+
+### Phase 1 — environment and simulation mechanics
+
+- `src/neuromorphic_swarming/config.py` — add the configuration loader and schema.
+- `src/neuromorphic_swarming/seeds.py` — add deterministic random seeding.
+- `src/neuromorphic_swarming/env/__init__.py` — export the environment package.
+- `src/neuromorphic_swarming/env/dynamics.py` — implement agent motion, velocity limits, boundaries, and simple physics.
+- `src/neuromorphic_swarming/env/observations.py` — define local sensing, neighbor state, and observation packing.
+- `src/neuromorphic_swarming/env/scenarios.py` — implement target motion, obstacle geometry, and scenario generation.
+- `src/neuromorphic_swarming/env/swarm_env.py` — build the main environment loop and reset/step API.
+- `src/neuromorphic_swarming/energy.py` — add the energy proxy after the movement model is defined.
+- `src/neuromorphic_swarming/visualization.py` — add rollout rendering only after the environment is stable.
+- `configs/environment/*.yaml` — define small-swarm, moving-target, and obstacle scenarios.
+- `random.py` — leave it for local scratch or debugging only; do not let it become the main simulation logic.
+
+### Phase 2 — controller interfaces and controller logic
+
+- `src/neuromorphic_swarming/controllers/base.py` — define a shared controller interface and action format.
+- `src/neuromorphic_swarming/controllers/rule_based.py` — implement the simple hand-designed baseline controller first.
+- `src/neuromorphic_swarming/controllers/recurrent.py` — add the recurrent learned baseline after the rule-based controller works.
+- `src/neuromorphic_swarming/controllers/snn.py` — implement the spiking controller only after the same task interface works for the baselines.
+- `src/neuromorphic_swarming/controllers/__init__.py` — expose controller classes and factories.
+- `configs/controllers/*.yaml` — define controller hyperparameters once the interface is fixed.
+
+### Phase 3 — training and model learning
+
+- `src/neuromorphic_swarming/training/__init__.py` — export training modules.
+- `src/neuromorphic_swarming/training/train_baseline.py` — train the non-spiking baseline.
+- `src/neuromorphic_swarming/training/train_snn.py` — train the spiking model.
+- `scripts/train.py` — create the top-level training entry point once the training scripts run.
+- `scripts/smoke_test.py` — add a quick smoke test for environment/controller sanity.
+
+### Phase 4 — metrics, evaluation, and experiment automation
+
+- `src/neuromorphic_swarming/metrics.py` — define task metrics, success criteria, and aggregation logic.
+- `src/neuromorphic_swarming/evaluation/evaluate.py` — implement single-run evaluation logic.
+- `src/neuromorphic_swarming/evaluation/robustness.py` — add node-loss and perturbation checks.
+- `src/neuromorphic_swarming/evaluation/scaling.py` — benchmark scaling and swarm-size behavior.
+- `src/neuromorphic_swarming/evaluation/__init__.py` — expose the evaluation package.
+- `configs/experiments/*.yaml` — define the smoke and benchmark runs.
+- `scripts/evaluate.py` — build the evaluation command line.
+- `scripts/run_sweep.py` — add parameter sweeps once the single-run path works.
+- `scripts/render_rollout.py` — create export/visualization of a short rollout after validation.
+- `results/` — generated outputs only; leave this folder empty except for `.gitkeep` until runs exist.
+
+### Phase 5 — tests and verification
+
+- `tests/unit/test_dynamics.py` — verify motion, boundaries, and target logic.
+- `tests/unit/test_environment.py` — verify environment setup and transitions.
+- `tests/unit/test_observations.py` — verify what each agent sees.
+- `tests/unit/test_controllers.py` — verify controller outputs and action validity.
+- `tests/unit/test_energy.py` — verify the energy proxy calculations.
+- `tests/unit/test_metrics.py` — verify the metric definitions and edge cases.
+- `tests/unit/test_training.py` — verify that training runs and objective functions are valid.
+- `tests/integration/test_rollout.py` — test a small end-to-end rollout.
+- `tests/integration/test_config_loading.py` — confirm YAML config compatibility.
+
+### Phase 6 — final polish and release
+
+- Revisit `README.md` and clean up the project story and roadmap.
+- Finalize `pyproject.toml` and recorded dependencies.
+- Complete `docs/publication_checklist.md`.
+- Add final evidence in `docs/` and record what is proven versus what is still a claim.
+- Use `results/` for generated outputs only and keep the repo honest about what was measured.
+
+### Simple rule for this repo
+
+- If a file is in an earlier phase, do it before touching a later file.
+- If a config file changes, update the corresponding code path and tests in the same pass.
+- Do not write training or evaluation code before the environment and controller interfaces are stable.
+- Do not claim a result before the relevant test and documentation exist.
 
 ### Which files belong to which stage?
 
