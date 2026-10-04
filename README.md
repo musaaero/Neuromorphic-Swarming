@@ -2,7 +2,7 @@
 
 ## Contributors wanted: build this with me
 
-We are looking for people who are genuinely interested in neuromorphic swarm intelligence, drone coordination, spiking neural networks, reinforcement learning, robotics, and scientific reproducibility — and who want to learn, build, research, and ship something real together.
+I'm are looking for people who are genuinely interested in neuromorphic swarm intelligence, drone coordination, spiking neural networks, reinforcement learning, robotics, and scientific reproducibility — and who want to learn, build, research, and ship something real together.
 
 This project is not a polished finished repo. It is a collaborative research-and-build space for people who want to take an idea from concept paper to implementation, run honest experiments, and document what works and what does not.
 
