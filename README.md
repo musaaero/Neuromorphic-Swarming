@@ -1,6 +1,6 @@
 # Neuromorphic Swarming
 
-## Building neuromorphic swarms — contributors welcome
+## Contributors welcome
 
 I'm starting this project to learn, experiment, and build in autonomous drones and swarm coordination. I want to explore the field through hands-on trial and error: make ideas concrete, test them in simulation, learn from what fails, and keep building toward more capable systems.
 
