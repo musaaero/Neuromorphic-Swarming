@@ -2,7 +2,7 @@
 
 ## Building neuromorphic swarms — contributors welcome
 
-I'm starting this project to learn, experiment, and build in neuromorphic computing, autonomous drones, and swarm coordination. I want to explore the field through hands-on trial and error: make ideas concrete, test them in simulation, learn from what fails, and keep building toward more capable systems.
+I'm starting this project to learn, experiment, and build in autonomous drones and swarm coordination. I want to explore the field through hands-on trial and error: make ideas concrete, test them in simulation, learn from what fails, and keep building toward more capable systems.
 
 I'm based at a university in China (Nanjing university of Aeronautics and Astronautics mail me:uma_aero@nuaa.edu.cn) with strong unmanned-aircraft and helicopter research, and I hope to connect this project with the expertise and resources around me as it develops.
 
