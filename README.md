@@ -148,14 +148,6 @@ This is the actual coding sequence to follow. Do not jump ahead. Each phase depe
 - [ ] Add final evidence in `docs/` and record what is proven versus what is still a claim.
 - [ ] Use `results/` for generated outputs only and keep the repo honest about what was measured.
 
-### Simple rule for this repo
-
-- If a file is in an earlier phase, do it before touching a later file.
-- If a config file changes, update the corresponding code path and tests in the same pass.
-- Do not write training or evaluation code before the environment and controller interfaces are stable.
-- Do not claim a result before the relevant test and documentation exist.
-
-### Which files belong to which stage?
 
 | Stage | Main files to implement or fill in |
 |---|---|
@@ -168,7 +160,7 @@ This is the actual coding sequence to follow. Do not jump ahead. Each phase depe
 
 ### Implementation order inside the scaffold
 
-1. Fill in the research notes and decide the first question; do not start with a 100-agent or hardware claim.
+1. Fill in the research notes and decide the first question.
 2. Build and test the deterministic environment mechanics before writing a trainable policy.
 3. Add a transparent energy proxy and metrics before comparing controllers.
 4. Implement the hand-designed controller, then a non-spiking learned baseline, then the SNN controller against the same interface.
