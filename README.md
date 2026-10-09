@@ -76,7 +76,7 @@ This is the actual coding sequence to follow. Do not jump ahead. Each phase depe
 - [x] `README.md` — write the repo purpose, scope, and the final story first. Update it again at the end, but do not treat it as the implementation.
 - [x] `pyproject.toml` — set the package name, Python version, dependencies, and dev/test tools.
 - [x] `docs/README.md` — create the docs index and list the research record for the repo.
-- [ ] `docs/research_question.md` — write the first precise research question and non-goals.
+- [x] `docs/research_question.md` — write the first precise research question and non-goals.
 - [x] `docs/literature_review.md` — collect the references and summarize how they relate to the project.
 - [ ] `docs/decisions.md` — record each design choice as you make it.
 - [ ] `docs/model_assumptions.md` — write the initial simulator assumptions before building code.
