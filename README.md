@@ -79,7 +79,7 @@ This is the actual coding sequence to follow. Do not jump ahead. Each phase depe
 - [x] `docs/research_question.md` — write the first precise research question and non-goals.
 - [x] `docs/literature_review.md` — collect the references and summarize how they relate to the project.
 - [x] `docs/decisions.md` — record each design choice as you make it.
-- [ ] `docs/model_assumptions.md` — write the initial simulator assumptions before building code.
+- [x] `docs/model_assumptions.md` — write the initial simulator assumptions before building code.
 - [ ] `docs/experiment_protocol.md` — define how the first experiment will be run and compared.
 - [ ] `docs/results_template.md` — define a standard output format before any result is generated.
 - [ ] `docs/publication_checklist.md` and `docs/upstream_contributions.md` — do these later, after the repo has evidence.
