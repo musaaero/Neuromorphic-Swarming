@@ -1,0 +1,10 @@
+# TODO: Freeze this protocol before collecting benchmark results.
+name: benchmark
+environment: TODO
+controllers: []
+training: {}
+evaluation:
+  seeds: []
+  episodes_per_seed: TODO
+metrics: []
+output_dir: results/benchmark

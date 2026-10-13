@@ -1,0 +1,7 @@
+# TODO: Specify architecture, training algorithm, and budget after selecting
+# the non-spiking baseline and matching its observations/actions to the SNN.
+name: recurrent_baseline
+model: {}
+training: {}
+observation: {}
+action: {}

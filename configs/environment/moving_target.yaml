@@ -1,0 +1,9 @@
+# TODO: Define target trajectory, speed range, and reset/seed behavior.
+# Keep all values provisional until documented in docs/model_assumptions.md.
+name: moving_target
+num_agents: 5
+world: {}
+simulation: {}
+target:
+  motion: TODO
+obstacles: []
